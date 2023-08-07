@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero automático</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="encabezado">
+        <div class="logo">
+          <img src="./img/logo3.png" alt="Logo">
+        </div>
+        <div class="nombre">
+          <h1>Money Tech</h1>
+          <h5>Banco de Confianza</h5>
+        </div>
+      </div>
+    <div class="contenedor">
+        <div class="contenedor-formularios">
+          <div class="iniciar-registrar">
+            <form action="" class="formulario-iniciar-sesion">
+              <h2 class="titulo">Iniciar sesión</h2>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Nombre de usuario" required/>
+              </div>
+              <div class="campo">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Contraseña" required/>
+              </div>
+              <input type="submit" value="Iniciar Sesión" class="btn solid" />
+      
+              <p class="texto-social">O inicia sesión con tus redes sociales</p>
+              <div class="redes-sociales">
+                <a href="#" class="icono-social">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+      
+            <form action="" class="formulario-registrar">
+              <h2 class="titulo">Registrarse</h2>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Nombre de usuario"  required/>
+              </div>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Número de cuenta" required/>
+              </div>
+              <div class="campo">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Correo electrónico" required/>
+              </div>
+              <div class="campo">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Contraseña" required/>
+              </div>
+              <input type="submit" value="Registrarse" class="btn solid" />
+      
+              
+              <div class="redes-sociales">
+                <a href="#" class="icono-social">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="contenedor-paneles">
+      
+          <div class="panel izquierdo">
+              <div class="contenido">
+                  <h3>¿Eres nuevo aquí?</h3>
+                  <button class="btn transparente" id="btn-registrarse">Registrarse</button>
+              </div>
+              <img src="./img/logo.pn" class="imagen" alt="">
+          </div>
+      
+          <div class="panel derecho">
+              <div class="contenido">
+                  <h3>¿Ya tienes una cuenta?</h3>
+                  <button class="btn transparente" id="btn-iniciar-sesion">Iniciar Sesión</button>
+              </div>
+              <img src="./img/logo.pn" class="imagen" alt="">
+          </div>
+        </div>
+      </div>
+      
+
+
+    <!-- <div class="contenedor">
+        <h1>MoneyTech</h1>
+        <div class="formulario-login">
+            <h2>Iniciar sesión</h2>
+            <form id="formularioInicioSesion">
+                <input type="text" id="numeroCuenta" placeholder="Número de cuenta" required>
+                <input type="password" id="contrasena" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+
+        <div class="formulario-registro"- id="formularioRegistro">
+            <h2>Registrar Cuenta</h2>
+            <form>
+                <input type="text" id="numeroCuentaNueva" placeholder="Número de cuenta" required>
+                <input type="password" id="contrasenaNueva" placeholder="Contraseña" required>
+                <input type="text" id="nombreUsuario" placeholder="Nombre del usuario" required>
+                <input type="text" id="correoUsuario" placeholder="Correo electrónico" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </div> -->
+
+        <!-- <div class="acciones">
+            <h2>Transacciones</h2>
+            <button id="botonRetirar">Retirar</button>
+            <button id="botonConsignar">Consignar</button>
+            <button id="botonTransferir">Transferir</button>
+            <button id="botonConsultar">Consultar</button>
+        </div>
+
+        <div class="retirarDinero">
+            <h2>Retirar Dinero</h2>
+            <form id="formularioRetirar">
+              <input type="text" id="montoRetirar" placeholder="Cantidad a retirar" required>
+              <button type="submit">Retirar</button>
+            </form>
+        </div>
+
+        <div class="consignarDinero">
+            <h2>Consignar Dinero</h2>
+            <form id="formularioConsignar">
+              <input type="text" id="montoConsignar" placeholder="Cantidad a consignar" required>
+              <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+              <button type="submit">Consignar</button>
+            </form>
+        </div>
+
+        <div class="transferirDinero">
+            <h2>Transferir Dinero</h2>
+            <form id="formularioTransferir">
+                <input type="text" id="montoTransferir" placeholder="Cantidad a transferir" required>
+                <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+                <button type="submit">Transferir</button>
+            </form>
+        </div>
+
+        <div class="consultarDinero">
+            <h2>Saldo Disponible</h2>
+            <p id="saldoDisponible">$0.00</p>
+        </div> -->
+
+
+
+    </div>
+
+    <script src="/controllers/script.js"></script>
+</body>
+</html>
