@@ -489,8 +489,13 @@ form.formulario-iniciar-sesion {
     bottom: 28%;
     left: 50%;
   }
+} 
+
+/* mensaje de error formulario de registro*/
+
+.error-msg {
+  color: red;
+  font-size: 12.5px;
+  white-space: nowrap;
+  margin-top: 2.5px;
 }
-
-
-
-  

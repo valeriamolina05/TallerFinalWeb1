@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/movimientos.css">
+    <title>Document</title>
+</head>
+
+<body>
+     <div class="acciones">
+            <h2>Transacciones</h2>
+            <button id="botonRetirar">Retirar</button>
+            <button id="botonConsignar">Consignar</button>
+            <button id="botonTransferir">Transferir</button>
+            <button id="botonConsultar">Consultar</button>
+        </div>
+
+        <div class="retirarDinero">
+            <h2>Retirar Dinero</h2>
+            <form id="formularioRetirar">
+              <input type="text" id="montoRetirar" placeholder="Cantidad a retirar" required>
+              <button type="submit">Retirar</button>
+            </form>
+        </div>
+
+        <div class="consignarDinero">
+            <h2>Consignar Dinero</h2>
+            <form id="formularioConsignar">
+              <input type="text" id="montoConsignar" placeholder="Cantidad a consignar" required>
+              <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+              <button type="submit">Consignar</button>
+            </form>
+        </div>
+
+        <div class="transferirDinero">
+            <h2>Transferir Dinero</h2>
+            <form id="formularioTransferir">
+                <input type="text" id="montoTransferir" placeholder="Cantidad a transferir" required>
+                <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+                <button type="submit">Transferir</button>
+            </form>
+        </div>
+
+        <div class="consultarDinero">
+            <h2>Saldo Disponible</h2>
+            <p id="saldoDisponible">$0.00</p>
+        </div>
+</body>
+
+</html>

@@ -20,15 +20,15 @@
     <div class="contenedor">
         <div class="contenedor-formularios">
           <div class="iniciar-registrar">
-            <form action="" class="formulario-iniciar-sesion">
+            <form id="login-form" class="formulario-iniciar-sesion">
               <h2 class="titulo">Iniciar sesión</h2>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nombre de usuario" required/>
+                <input type="text" id="account-number" placeholder="Número de cuenta" required/>
               </div>
               <div class="campo">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" required/>
+                <input type="password" id="pin" placeholder="PIN" required/>
               </div>
               <input type="submit" value="Iniciar Sesión" class="btn solid" />
       
@@ -53,19 +53,23 @@
               <h2 class="titulo">Registrarse</h2>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nombre de usuario"  required/>
+                <input type="text" id="nombre-usuario" placeholder="Nombre de usuario"  required/>
+                <div id="error-nombre-usuario" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Número de cuenta" required/>
+                <input type="text" id="numero-cuenta" placeholder="Número de cuenta" required/>
+                <div id="error-numero-cuenta" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Correo electrónico" required/>
+                <input type="email" id="correo-electronico" placeholder="Correo electrónico" required/>
+                <div id="error-correo-electronico" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" required/>
+                <input type="password" id="contrasenia" placeholder="Contraseña" required/>
+                <div id="error-contrasenia" class="error-msg"></div>
               </div>
               <input type="submit" value="Registrarse" class="btn solid" />
       
@@ -175,5 +179,8 @@
     </div>
 
     <script src="/controllers/script.js"></script>
+    <script src="/controllers/permitirNuevosRegistros.js"></script>
+    <script src="/controllers/validarInicioSesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
