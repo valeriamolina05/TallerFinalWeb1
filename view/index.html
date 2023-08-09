@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="encabezado">
+    <!-- <div class="encabezado">
         <div class="logo">
           <img src="./img/logo3.png" alt="Logo">
         </div>
@@ -16,19 +16,19 @@
           <h1>Money Tech</h1>
           <h5>Banco de Confianzaa</h5>
         </div>
-      </div>
+      </div> -->
     <div class="contenedor">
         <div class="contenedor-formularios">
           <div class="iniciar-registrar">
-            <form action="" class="formulario-iniciar-sesion">
+            <form id="login-form" class="formulario-iniciar-sesion">
               <h2 class="titulo">Iniciar sesión</h2>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nombre de usuario" required/>
+                <input type="text" id="account-number" placeholder="Número de cuenta" required/>
               </div>
               <div class="campo">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" required/>
+                <input type="password" id="pin" placeholder="PIN" required/>
               </div>
               <input type="submit" value="Iniciar Sesión" class="btn solid" />
       
@@ -53,19 +53,23 @@
               <h2 class="titulo">Registrarse</h2>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nombre de usuario"  required/>
+                <input type="text" id="nombre-usuario" placeholder="Nombre de usuario"  required/>
+                <div id="error-nombre-usuario" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Número de cuenta" required/>
+                <input type="text" id="numero-cuenta" placeholder="Número de cuenta" required/>
+                <div id="error-numero-cuenta" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Correo electrónico" required/>
+                <input type="email" id="correo-electronico" placeholder="Correo electrónico" required/>
+                <div id="error-correo-electronico" class="error-msg"></div>
               </div>
               <div class="campo">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" required/>
+                <input type="password" id="contrasenia" placeholder="Contraseña" required/>
+                <div id="error-contrasenia" class="error-msg"></div>
               </div>
               <input type="submit" value="Registrarse" class="btn solid" />
       
@@ -91,89 +95,36 @@
       
           <div class="panel izquierdo">
               <div class="contenido">
+                <h6>Money Tech</h6>
                   <h3>¿Eres nuevo aquí?</h3>
                   <button class="btn transparente" id="btn-registrarse">Registrarse</button>
               </div>
-              <img src="./img/logo.pn" class="imagen" alt="">
+              <img src="./img/logos.png" class="imagen" alt="">
           </div>
       
           <div class="panel derecho">
               <div class="contenido">
+                <h6>Money Tech</h6>
                   <h3>¿Ya tienes una cuenta?</h3>
                   <button class="btn transparente" id="btn-iniciar-sesion">Iniciar Sesión</button>
               </div>
-              <img src="./img/logo.pn" class="imagen" alt="">
+              <img src="./img/logos.png" class="imagen" alt="">
           </div>
         </div>
+h
+        
+        
+        
       </div>
       
 
 
-    <!-- <div class="contenedor">
-        <h1>MoneyTech</h1>
-        <div class="formulario-login">
-            <h2>Iniciar sesión</h2>
-            <form id="formularioInicioSesion">
-                <input type="text" id="numeroCuenta" placeholder="Número de cuenta" required>
-                <input type="password" id="contrasena" placeholder="Contraseña" required>
-                <button type="submit">Ingresar</button>
-            </form>
-        </div>
-
-        <div class="formulario-registro"- id="formularioRegistro">
-            <h2>Registrar Cuenta</h2>
-            <form>
-                <input type="text" id="numeroCuentaNueva" placeholder="Número de cuenta" required>
-                <input type="password" id="contrasenaNueva" placeholder="Contraseña" required>
-                <input type="text" id="nombreUsuario" placeholder="Nombre del usuario" required>
-                <input type="text" id="correoUsuario" placeholder="Correo electrónico" required>
-                <button type="submit">Registrar</button>
-            </form>
-        </div> -->
-
-        <!-- <div class="acciones">
-            <h2>Transacciones</h2>
-            <button id="botonRetirar">Retirar</button>
-            <button id="botonConsignar">Consignar</button>
-            <button id="botonTransferir">Transferir</button>
-            <button id="botonConsultar">Consultar</button>
-        </div>
-
-        <div class="retirarDinero">
-            <h2>Retirar Dinero</h2>
-            <form id="formularioRetirar">
-              <input type="text" id="montoRetirar" placeholder="Cantidad a retirar" required>
-              <button type="submit">Retirar</button>
-            </form>
-        </div>
-
-        <div class="consignarDinero">
-            <h2>Consignar Dinero</h2>
-            <form id="formularioConsignar">
-              <input type="text" id="montoConsignar" placeholder="Cantidad a consignar" required>
-              <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
-              <button type="submit">Consignar</button>
-            </form>
-        </div>
-
-        <div class="transferirDinero">
-            <h2>Transferir Dinero</h2>
-            <form id="formularioTransferir">
-                <input type="text" id="montoTransferir" placeholder="Cantidad a transferir" required>
-                <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
-                <button type="submit">Transferir</button>
-            </form>
-        </div>
-
-        <div class="consultarDinero">
-            <h2>Saldo Disponible</h2>
-            <p id="saldoDisponible">$0.00</p>
-        </div> -->
-
-
-
+    
     </div>
 
     <script src="/controllers/script.js"></script>
+    <script src="/controllers/permitirNuevosRegistros.js"></script>
+    <script src="/controllers/validarInicioSesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

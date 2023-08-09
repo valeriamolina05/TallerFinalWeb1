@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/movimientos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="script.js"></script>
+    <title>Transacciones</title>
+</head>
+<body>
+    <div class="acciones">
+        <h2>¿Qué transacción desea realizar?</h2>
+        <button id="botonRetirar">Retirar <i class="fas fa-money-bill"></i></button>
+        <button id="botonConsignar">Consignar <i class="fas fa-hand-holding-usd"></i></button>
+        <button id="botonTransferir">Transferir <i class="fas fa-exchange-alt"></i></button>
+        <button id="botonConsultar">Consultar Saldo <i class="fas fa-money-check-alt"></i></button>
+    </div>
+
+    <div class="formulario-container" id="formularioRetirar">
+        <h2>Retirar Dinero</h2>
+        <form>
+            <input type="number" id="montoRetirar" placeholder="Cantidad a retirar" required>
+            <button type="submit">Retirar</button>
+        </form>
+    </div>
+
+    <div class="formulario-container" id="formularioConsignar">
+        <h2>Consignar Dinero</h2>
+        <form>
+            <input type="number" id="montoConsignar" placeholder="Cantidad a consignar" required>
+            <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+            <button type="submit">Consignar</button>
+        </form>
+    </div>
+
+    <div class="formulario-container" id="formularioTransferir">
+        <h2>Transferir Dinero</h2>
+        <form>
+            <input type="number" id="montoTransferir" placeholder="Cantidad a transferir" required>
+            <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
+            <button type="submit">Transferir</button>
+        </form>
+    </div>
+
+    <div class="formulario-container" id="formularioConsultar">
+        <h2>Saldo Disponible</h2>
+        <p id="saldoDisponible">$0.00</p>
+        <p id="movimientosRealizados">Movimientos realizados: 0</p>
+    </div>
+
+    
+</body>
+<script src="/controllers/movimientos.js"></script>
+</html>
