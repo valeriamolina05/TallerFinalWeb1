@@ -19,6 +19,7 @@ registroForm.addEventListener('submit', function(event) {
   const correoElectronicoInput = document.getElementById('correo-electronico');
   const contraseniaInput = document.getElementById('contrasenia');
 
+  // Validación de campos
   if (!nombreUsuario.test(nombreUsuarioInput.value)) {
     mostrarMensajeError(nombreUsuarioInput,'Nombre de usuario inválido');
     return;
@@ -39,13 +40,13 @@ registroForm.addEventListener('submit', function(event) {
     return;
   }
 
+  // Crear nuevo usuario
   const nuevoUsuario = {
     nombreUsuario: nombreUsuarioInput.value,
     numeroCuenta: numeroCuentaInput.value,
     correoElectronico: correoElectronicoInput.value,
     contrasenia: contraseniaInput.value
   };
-
   usuarios.push(nuevoUsuario);
 
   // Limpia los campos del formulario después del registro exitoso
