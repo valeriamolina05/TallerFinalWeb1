@@ -5,13 +5,13 @@ const maxIntentos = 3;
 const usuarios = [
   { numeroDeCuenta: '12345', pin: '54321' },
   { numeroDeCuenta: '67890', pin: '09876' },
-  {numeroDeCuenta: '56789', pin: 'Password123'},
-  {numeroDeCuenta: '25643', pin: 'SecureP@ssw0rd'}
+  { numeroDeCuenta: '56789', pin: 'Password123' },
+  { numeroDeCuenta: '25643', pin: 'SecureP@ssw0rd' }
 ];
 
 const loginForm = document.getElementById('login-form');
 
-loginForm.addEventListener('submit', function(event) {
+loginForm.addEventListener('submit', function (event) {
   event.preventDefault(); // Evita el envío del formulario
 
   const accountNumberInput = document.getElementById('account-number');
