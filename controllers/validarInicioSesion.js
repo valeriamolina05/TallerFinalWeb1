@@ -12,34 +12,31 @@ const usuarios = [
 const loginForm = document.getElementById('login-form');
 
 loginForm.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evita el envío del formulario
+  event.preventDefault();
 
-  // Obtener elementos de entrada
   const accountNumberInput = document.getElementById('account-number');
   const pinInput = document.getElementById('pin');
 
-   // Obtener los valores ingresados
+ 
   const accountNumber = accountNumberInput.value;
   const pin = pinInput.value;
 
-  // Buscar usuario que coincida con las credenciales ingresadas
+ 
   const usuarioEncontrado = usuarios.find(user => user.numeroDeCuenta === accountNumber && user.pin === pin);
 
   if (usuarioEncontrado) {
-    // Inicio de sesión exitoso
-    intentosFallidos = 0; // Reiniciar contador de intentos fallidos
-    accountNumberInput.value = ''; // Limpiar el campo del número de cuenta
-    pinInput.value = ''; // Limpiar el campo del PIN
-    //redirigir al usuario a la página de movimientos después del inicio de sesión
+    
+    intentosFallidos = 0;
+    accountNumberInput.value = '';
+    pinInput.value = '';
     window.location.href = 'Movimientos.html';
   } else {
     intentosFallidos++;
     Swal.fire('Credenciales inválidas.')
 
     if (intentosFallidos >= maxIntentos) {
-      // Bloquear el formulario después de superar el número máximo de intentos
       Swal.fire('Has superado el número máximo de intentos. ¡Inténtalo más tarde!');
-      loginForm.style.display = 'none'; // Ocultar formulario de inicio de sesión
+      loginForm.style.display = 'none';
     }
   };
 });
