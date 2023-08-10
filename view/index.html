@@ -19,102 +19,110 @@
           <h5>Banco de Confianzaa</h5>
         </div>
       </div> -->
-  <div class="contenedor">
-    <div class="contenedor-formularios">
-      <div class="iniciar-registrar">
-        <form id="login-form" class="formulario-iniciar-sesion">
-          <h2 class="titulo">Iniciar sesión</h2>
-          <div class="campo">
-            <i class="fas fa-user"></i>
-            <input type="text" id="account-number" placeholder="Número de cuenta" required />
+    <div class="contenedor">
+        <div class="contenedor-formularios">
+          <div class="iniciar-registrar">
+            <form id="login-form" class="formulario-iniciar-sesion">
+              <h2 class="titulo">Iniciar sesión</h2>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" id="account-number" placeholder="Número de cuenta" required/>
+              </div>
+              <div class="campo">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="pin" placeholder="PIN" required/>
+              </div>
+              <input type="submit" value="Iniciar Sesión" class="btn solid" />
+      
+              <p class="texto-social">Iniciar sesión con tus redes sociales</p>
+              <div class="redes-sociales">
+                <a href="#" class="icono-social">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+      
+            <form action="" class="formulario-registrar">
+              <h2 class="titulo">Registrarse</h2>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" id="nombre-usuario" placeholder="Nombre de usuario"  required/>
+                <div id="error-nombre-usuario" class="error-msg"></div>
+              </div>
+              <div class="campo">
+                <i class="fas fa-user"></i>
+                <input type="text" id="numero-cuenta" placeholder="Número de cuenta" required/>
+                <div id="error-numero-cuenta" class="error-msg"></div>
+              </div>
+              <div class="campo">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="correo-electronico" placeholder="Correo electrónico" required/>
+                <div id="error-correo-electronico" class="error-msg"></div>
+              </div>
+              <div class="campo">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="contrasenia" placeholder="Contraseña" required/>
+                <div id="error-contrasenia" class="error-msg"></div>
+              </div>
+              <input type="submit" value="Registrarse" class="btn solid" />
+      
+              
+              <div class="redes-sociales">
+                <a href="#" class="icono-social">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="icono-social">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
           </div>
-          <div class="campo">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="pin" placeholder="PIN" required />
-          </div>
-          <input type="submit" value="Iniciar Sesión" class="btn solid" />
-
-          <p class="texto-social">O inicia sesión con tus redes sociales</p>
-          <div class="redes-sociales">
-            <a href="#" class="icono-social">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </form>
-
-        <form action="" class="formulario-registrar">
-          <h2 class="titulo">Registrarse</h2>
-          <div class="campo">
-            <i class="fas fa-user"></i>
-            <input type="text" id="nombre-usuario" placeholder="Nombre de usuario" required />
-            <div id="error-nombre-usuario" class="error-msg"></div>
-          </div>
-          <div class="campo">
-            <i class="fas fa-user"></i>
-            <input type="text" id="numero-cuenta" placeholder="Número de cuenta" required />
-            <div id="error-numero-cuenta" class="error-msg"></div>
-          </div>
-          <div class="campo">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="correo-electronico" placeholder="Correo electrónico" required />
-            <div id="error-correo-electronico" class="error-msg"></div>
-          </div>
-          <div class="campo">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="contrasenia" placeholder="Contraseña" required />
-            <div id="error-contrasenia" class="error-msg"></div>
-          </div>
-          <input type="submit" value="Registrarse" class="btn solid" />
-
-
-          <div class="redes-sociales">
-            <a href="#" class="icono-social">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="icono-social">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="contenedor-paneles">
-
-      <div class="panel izquierdo">
-        <div class="contenido">
-          <h6>Money Tech</h6>
-          <h3>¿Eres nuevo aquí?</h3>
-          <button class="btn transparente" id="btn-registrarse">Registrarse</button>
         </div>
-        <img src="./img/logos.png" class="imagen" alt="">
-      </div>
-
-      <div class="panel derecho">
-        <div class="contenido">
-          <h6>Money Tech</h6>
-          <h3>¿Ya tienes una cuenta?</h3>
-          <button class="btn transparente" id="btn-iniciar-sesion">Iniciar Sesión</button>
+        <div class="contenedor-paneles">
+      
+          <div class="panel izquierdo">
+              <div class="contenido">
+                <h6>Money Tech</h6>
+                  <h3>¿Eres nuevo aquí?</h3>
+                  <button class="btn transparente" id="btn-registrarse">Registrarse</button>
+              </div>
+              <img src="./img/logos.png" class="imagen" alt="">
+          </div>
+      
+          <div class="panel derecho">
+              <div class="contenido">
+                <h6>Money Tech</h6>
+                  <h3>¿Ya tienes una cuenta?</h3>
+                  <button class="btn transparente" id="btn-iniciar-sesion">Iniciar Sesión</button>
+              </div>
+              <img src="./img/logos.png" class="imagen" alt="">
+          </div>
         </div>
-        <img src="./img/logos.png" class="imagen" alt="">
+h
+        
+        
+        
       </div>
+      
+
+
+    
     </div>
-  </div>
-  </div>
 
   <script src="/controllers/script.js"></script>
   <script src="/controllers/permitirNuevosRegistros.js"></script>
