@@ -1,6 +1,6 @@
 const registroForm = document.querySelector('.formulario-registrar');
 
-// Expresiones regulares para validar campos
+// Expresiones regulares para validar los campos
 const nombreUsuario = /^[a-zA-Z0-9_-]{3,16}$/;
 const numeroCuenta = /^\d{5}$/;
 const correoElectronico = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -12,14 +12,14 @@ function mostrarMensajeError(campo, mensaje) {
 }
 
 registroForm.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evita el envío del formulario
+  event.preventDefault();
 
   const nombreUsuarioInput = document.getElementById('nombre-usuario');
   const numeroCuentaInput = document.getElementById('numero-cuenta');
   const correoElectronicoInput = document.getElementById('correo-electronico');
   const contraseniaInput = document.getElementById('contrasenia');
 
-  // Validación de campos
+
   if (!nombreUsuario.test(nombreUsuarioInput.value)) {
     mostrarMensajeError(nombreUsuarioInput, 'Nombre de usuario inválido');
     return;
@@ -40,7 +40,7 @@ registroForm.addEventListener('submit', function (event) {
     return;
   }
 
-  // Crear nuevo usuario
+
   const nuevoUsuario = {
     nombreUsuario: nombreUsuarioInput.value,
     numeroCuenta: numeroCuentaInput.value,
@@ -49,13 +49,13 @@ registroForm.addEventListener('submit', function (event) {
   };
   usuarios.push(nuevoUsuario);
 
-  // Limpia los campos del formulario después del registro exitoso
+
   nombreUsuarioInput.value = '';
   numeroCuentaInput.value = '';
   correoElectronicoInput.value = '';
   contraseniaInput.value = '';
 
-  // Mostrar mensaje de éxito
+  
   Swal.fire({
     icon: 'success',
     title: '¡Registro Exitoso!',
@@ -63,7 +63,7 @@ registroForm.addEventListener('submit', function (event) {
     showConfirmButton: false,
     timer: 1500
   }).then(() => {
-    // Redirigir al usuario a la página de movimientos después de mostrar el mensaje
-    window.location.href = 'Movimientos.html'; // Cambia esto a la URL correcta
+    
+    window.location.href = 'Movimientos.html';
   });
 });
