@@ -9,9 +9,3 @@ boton_registrarse.addEventListener('click', () => {
 boton_iniciar_sesion.addEventListener('click', () => {
   contenedor.classList.remove("formulario-registrar-mode");
 });
-
-
-
-
-
-

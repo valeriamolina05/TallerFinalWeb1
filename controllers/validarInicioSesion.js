@@ -11,7 +11,7 @@ const usuarios = [
 
 const loginForm = document.getElementById('login-form');
 
-loginForm.addEventListener('submit', function(event) {
+loginForm.addEventListener('submit', function (event) {
   event.preventDefault(); // Evita el envío del formulario
 
   // Obtener elementos de entrada
