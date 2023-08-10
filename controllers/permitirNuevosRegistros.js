@@ -11,7 +11,7 @@ function mostrarMensajeError(campo, mensaje) {
   errorElement.textContent = mensaje;
 }
 
-registroForm.addEventListener('submit', function(event) {
+registroForm.addEventListener('submit', function (event) {
   event.preventDefault(); // Evita el envío del formulario
 
   const nombreUsuarioInput = document.getElementById('nombre-usuario');
@@ -19,33 +19,34 @@ registroForm.addEventListener('submit', function(event) {
   const correoElectronicoInput = document.getElementById('correo-electronico');
   const contraseniaInput = document.getElementById('contrasenia');
 
+  // Validación de campos
   if (!nombreUsuario.test(nombreUsuarioInput.value)) {
-    mostrarMensajeError(nombreUsuarioInput,'Nombre de usuario inválido');
+    mostrarMensajeError(nombreUsuarioInput, 'Nombre de usuario inválido');
     return;
   }
 
   if (!numeroCuenta.test(numeroCuentaInput.value)) {
-    mostrarMensajeError(numeroCuentaInput,'Número de cuenta inválido');
+    mostrarMensajeError(numeroCuentaInput, 'Número de cuenta inválido');
     return;
   }
 
   if (!correoElectronico.test(correoElectronicoInput.value)) {
-    mostrarMensajeError(correoElectronicoInput,'Correo electrónico inválido');
+    mostrarMensajeError(correoElectronicoInput, 'Correo electrónico inválido');
     return;
   }
 
   if (!contrasenia.test(contraseniaInput.value)) {
-    mostrarMensajeError(contraseniaInput,'Contraseña inválida');
+    mostrarMensajeError(contraseniaInput, 'Contraseña inválida');
     return;
   }
 
+  // Crear nuevo usuario
   const nuevoUsuario = {
     nombreUsuario: nombreUsuarioInput.value,
     numeroCuenta: numeroCuentaInput.value,
     correoElectronico: correoElectronicoInput.value,
     contrasenia: contraseniaInput.value
   };
-
   usuarios.push(nuevoUsuario);
 
   // Limpia los campos del formulario después del registro exitoso
@@ -66,5 +67,3 @@ registroForm.addEventListener('submit', function(event) {
     window.location.href = 'Movimientos.html'; // Cambia esto a la URL correcta
   });
 });
-
-
