@@ -17,6 +17,7 @@ input {
   background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
+  
 }
 
 .contenedor-formularios {
@@ -177,9 +178,10 @@ form.formulario-iniciar-sesion {
 }
 
 .imagen {
-  width: 50%;
+  width: 45%;
   transition: transform 0.9s ease-in-out;
   transition-delay: 0.6s;
+  
 }
 
 .panel {
@@ -193,12 +195,13 @@ form.formulario-iniciar-sesion {
 
 .izquierdo {
   pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
+  padding: 3rem 35% 2rem 12%;
+  
 }
 
 .derecho {
   pointer-events: none;
-  padding: 3rem 12% 2rem 17%;
+  padding: 3rem 20% 2rem 17%;
 
 }
 
@@ -211,7 +214,7 @@ form.formulario-iniciar-sesion {
 .panel h6 {
   font-weight: 600;
   line-height: 1;
-  font-size: 1.5rem;
+  font-size: 40px;
   color: #fff;
 }
 
