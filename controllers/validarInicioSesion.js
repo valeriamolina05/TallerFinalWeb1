@@ -1,15 +1,7 @@
 let intentosFallidos = 0;
 const maxIntentos = 3;
-
-// Array de usuarios con sus credenciales
-const usuarios = [
-  { numeroDeCuenta: '12345', pin: '54321' },
-  { numeroDeCuenta: '67890', pin: '09876' },
-  { numeroDeCuenta: '56789', pin: 'Password123'},
-  { numeroDeCuenta: '25643', pin: 'SecureP@ssw0rd'}
-];
-
 const loginForm = document.getElementById('login-form');
+let usuario
 
 loginForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -17,15 +9,18 @@ loginForm.addEventListener('submit', function (event) {
   const accountNumberInput = document.getElementById('account-number');
   const pinInput = document.getElementById('pin');
 
- 
   const accountNumber = accountNumberInput.value;
   const pin = pinInput.value;
-
- 
-  const usuarioEncontrado = usuarios.find(user => user.numeroDeCuenta === accountNumber && user.pin === pin);
+  let usuarioEncontrado
+  localStorage.setItem("NumeroCuentaActual", accountNumber);
+  usuario = [JSON.parse(localStorage.getItem(accountNumber))] || null;
+  if (usuario[0] !== null && usuario[0].contrasenia === pin) {
+    usuarioEncontrado = true;
+  }else {
+    usuarioEncontrado = false;
+  }
 
   if (usuarioEncontrado) {
-    
     intentosFallidos = 0;
     accountNumberInput.value = '';
     pinInput.value = '';

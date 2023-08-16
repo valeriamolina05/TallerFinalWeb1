@@ -74,6 +74,16 @@ body {
   background-color: #27ae60;
 }
 
+#cerrar-seccion{
+  background-color: rgb(249, 30, 30);
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+#cerrar-seccion:hover{
+  background-color: rgb(192, 38, 38);
+}
+
 #saldoDisponible {
   font-size: 42px;
   font-weight: bold;

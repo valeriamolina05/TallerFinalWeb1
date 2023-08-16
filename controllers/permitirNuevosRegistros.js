@@ -19,7 +19,6 @@ registroForm.addEventListener('submit', function (event) {
   const correoElectronicoInput = document.getElementById('correo-electronico');
   const contraseniaInput = document.getElementById('contrasenia');
 
-
   if (!nombreUsuario.test(nombreUsuarioInput.value)) {
     mostrarMensajeError(nombreUsuarioInput, 'Nombre de usuario inválido');
     return;
@@ -40,22 +39,31 @@ registroForm.addEventListener('submit', function (event) {
     return;
   }
 
-
   const nuevoUsuario = {
     nombreUsuario: nombreUsuarioInput.value,
     numeroCuenta: numeroCuentaInput.value,
     correoElectronico: correoElectronicoInput.value,
-    contrasenia: contraseniaInput.value
+    contrasenia: contraseniaInput.value,
+    saldo: 0
   };
-  usuarios.push(nuevoUsuario);
 
+  const usuarioPorDefecto = {
+    nombreUsuario: 'usuario-defecto',
+    numeroCuenta: 99999,
+    correoElectronico: 'ejemplo@gmail.com',
+    contrasenia: 'Prueb@123',
+    saldo: 0
+  }
+
+  localStorage.setItem("NumeroCuentaActual", numeroCuentaInput.value);
+  localStorage.setItem(usuarioPorDefecto.numeroCuenta, JSON.stringify(usuarioPorDefecto));
+  localStorage.setItem(numeroCuentaInput.value, JSON.stringify(nuevoUsuario));
 
   nombreUsuarioInput.value = '';
   numeroCuentaInput.value = '';
   correoElectronicoInput.value = '';
   contraseniaInput.value = '';
 
-  
   Swal.fire({
     icon: 'success',
     title: '¡Registro Exitoso!',
@@ -63,7 +71,7 @@ registroForm.addEventListener('submit', function (event) {
     showConfirmButton: false,
     timer: 1500
   }).then(() => {
-    
+
     window.location.href = 'Movimientos.html';
   });
 });
