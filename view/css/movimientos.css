@@ -74,15 +74,27 @@ body {
   background-color: #27ae60;
 }
 
-#cerrar-seccion{
-  background-color: rgb(249, 30, 30);
-  margin-bottom: 20px;
+
+#cerrar-sesion {
+  text-align: center;
+  margin-top: 40px; 
+}
+
+#cerrar-sesion button {
+  font-size: 24px;
+  padding: 20px 40px;
+  background-color: #f82d4a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-#cerrar-seccion:hover{
-  background-color: rgb(192, 38, 38);
+#cerrar-seccion button:hover {
+  background-color: #d32741; 
 }
+
 
 #saldoDisponible {
   font-size: 42px;
