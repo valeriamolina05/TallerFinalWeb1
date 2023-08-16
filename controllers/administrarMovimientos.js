@@ -6,11 +6,6 @@ let usuarioActual = parseInt(JSON.parse(localStorage.getItem("NumeroCuentaActual
 let usuario = JSON.parse(localStorage.getItem(usuarioActual));
 saldoElement.textContent = usuario.saldo
 
-let claves = []
-for (let i = 0; i < localStorage.length; i++) {
-    claves.push(localStorage.key(i));
-}
-
 let retirar = document.getElementById("montoRetirar");
 let botonRetirar = document.getElementById("botonRetirar2");
 
@@ -22,7 +17,6 @@ botonRetirar.addEventListener("click", function () {
         usuario.saldo -= montoARetirar;
         localStorage.setItem(usuarioActual,JSON.stringify(usuario))
         saldoElement.textContent = saldoActual;
-        retirar.value = '';
 
         let movimientosRealizadosElement = document.getElementById("movimientosRealizados");
         let movimientosRealizados = parseInt(movimientosRealizadosElement.textContent.split(":")[1]) + 1;
@@ -43,9 +37,18 @@ botonRetirar.addEventListener("click", function () {
         })
     }
     else if (montoARetirar < 50){
-        retirar.value = '';
         Swal.fire("El monto minimo a retirar son 50 pesos")
     }
+    else if(montoARetirar > saldoActual){
+        Swal.fire({
+            icon: 'error',
+            title: 'Saldo Insuficiente',
+            text: 'No tienes fondos para realizar esta operacion',
+            showConfirmButton: false,
+            timer: 3000
+        })
+    }
+    retirar.value = '';
 });
 
 
@@ -96,7 +99,7 @@ botonTransferir.addEventListener("click", function () {
     let usuarioTranferir = JSON.parse(localStorage.getItem(parseInt(cuentaDestino.value)));
 
     if (saldoActual > 0 && montoATransferir <= saldoActual  &&  montoATransferir >= 50) {
-        if (cuentaDestino !== usuarioActual.toString() && claves.includes(cuentaDestino.value)){
+        if (cuentaDestino !== usuarioActual.toString() &&  localStorage.getItem(cuentaDestino.value) !== null){
             saldoActual -= montoATransferir;
             usuarioTranferir.saldo += montoATransferir;
             localStorage.setItem(cuentaDestino.value, JSON.stringify(usuarioTranferir))
@@ -137,11 +140,20 @@ botonTransferir.addEventListener("click", function () {
         transferir.value = '';
         Swal.fire("El monto minimo a retirar son 50 pesos")
     }
+    else if(montoATransferir > saldoActual){
+        Swal.fire({
+            icon: 'error',
+            title: 'Saldo Insuficiente',
+            text: 'No tienes fondos para realizar esta operacion',
+            showConfirmButton: false,
+            timer: 3000
+        })
+        transferir.value = '';
+    }
 });
 
 
 let cerrarSeccion = document.getElementById("cerrar-seccion");
-
 cerrarSeccion.addEventListener("click", function () {
     localStorage.setItem("NumeroCuentaActual","")
 });
