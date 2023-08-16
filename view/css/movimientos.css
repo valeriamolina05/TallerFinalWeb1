@@ -75,12 +75,12 @@ body {
 }
 
 
-#cerrar-sesion {
+#cerrar-seccion {
   text-align: center;
   margin-top: 40px; 
 }
 
-#cerrar-sesion button {
+#cerrar-seccion button {
   font-size: 24px;
   padding: 20px 40px;
   background-color: #f82d4a;
@@ -91,7 +91,7 @@ body {
   transition: background-color 0.3s;
 }
 
-#cerrar-sesion button:hover {
+#cerrar-seccion button:hover {
   background-color: #d32741; 
 }
 
