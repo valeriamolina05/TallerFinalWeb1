@@ -39,14 +39,6 @@ registroForm.addEventListener('submit', function (event) {
     return;
   }
 
-  const nuevoUsuario = {
-    nombreUsuario: nombreUsuarioInput.value,
-    numeroCuenta: numeroCuentaInput.value,
-    correoElectronico: correoElectronicoInput.value,
-    contrasenia: contraseniaInput.value,
-    saldo: 0
-  };
-
   const usuarioPorDefecto = {
     nombreUsuario: 'usuario-defecto',
     numeroCuenta: 99999,
@@ -54,24 +46,47 @@ registroForm.addEventListener('submit', function (event) {
     contrasenia: 'Prueb@123',
     saldo: 0
   }
-
-  localStorage.setItem("NumeroCuentaActual", numeroCuentaInput.value);
   localStorage.setItem(usuarioPorDefecto.numeroCuenta, JSON.stringify(usuarioPorDefecto));
-  localStorage.setItem(numeroCuentaInput.value, JSON.stringify(nuevoUsuario));
 
-  nombreUsuarioInput.value = '';
-  numeroCuentaInput.value = '';
-  correoElectronicoInput.value = '';
-  contraseniaInput.value = '';
+  if (localStorage.getItem(numeroCuentaInput.value) === null && usuarioEncontrado === true) {
+    const nuevoUsuario = {
+      nombreUsuario: nombreUsuarioInput.value,
+      numeroCuenta: numeroCuentaInput.value,
+      correoElectronico: correoElectronicoInput.value,
+      contrasenia: contraseniaInput.value,
+      saldo: 0
+    };
 
-  Swal.fire({
-    icon: 'success',
-    title: '¡Registro Exitoso!',
-    text: 'Redirigiendo a la página de movimientos...',
-    showConfirmButton: false,
-    timer: 1500
-  }).then(() => {
+    localStorage.setItem("NumeroCuentaActual", numeroCuentaInput.value);
+    localStorage.setItem(numeroCuentaInput.value, JSON.stringify(nuevoUsuario));
 
-    window.location.href = 'Movimientos.html';
-  });
+    nombreUsuarioInput.value = '';
+    numeroCuentaInput.value = '';
+    correoElectronicoInput.value = '';
+    contraseniaInput.value = '';
+
+    Swal.fire({
+      icon: 'success',
+      title: '¡Registro Exitoso!',
+      text: 'Redirigiendo a la página de movimientos...',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(() => {
+
+      window.location.href = 'Movimientos.html';
+    });
+  }
+  else if (localStorage.getItem(numeroCuentaInput.value) !== null) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Cuenta ya existe',
+      text: 'El numero de cuenta que ingresaste ya esta registrado. Ingrese uno nuevo',
+      showConfirmButton: false,
+      timer: 4000
+    })
+    numeroCuentaInput.value = '';
+  }
+  else {
+    Swal.fire('Ocurrio un error inesperado...')
+  }
 });
