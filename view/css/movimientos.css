@@ -91,7 +91,7 @@ body {
   transition: background-color 0.3s;
 }
 
-#cerrar-seccion button:hover {
+#cerrar-sesion button:hover {
   background-color: #d32741; 
 }
 
