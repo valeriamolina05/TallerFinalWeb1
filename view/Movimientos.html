@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,22 +20,28 @@
     </div>
 
     <div class="formulario-container" id="formularioRetirar">
-        <h2>Retirar Dinero</h2>
-        <input type="number" id="montoRetirar" placeholder="Cantidad a retirar" required>
-        <button type="submit" id="botonRetirar2">Retirar</button>
+        <form action="" id="botonRetirar2">
+            <h2>Retirar Dinero</h2>
+            <input type="number" id="montoRetirar" placeholder="Cantidad a retirar" required>
+            <button type="submit">Retirar</button>
+        </form>
     </div>
 
     <div class="formulario-container" id="formularioConsignar">
-        <h2>Consignar Dinero</h2>
+        <form action="" id="botonConsignar2">
+            <h2>Consignar Dinero</h2>
             <input type="number" id="montoConsignar" placeholder="Cantidad a consignar" required>
-            <button type="submit" id="botonConsignar2">Consignar</button>
+            <button type="submit">Consignar</button>
+        </form>
     </div>
 
     <div class="formulario-container" id="formularioTransferir">
-        <h2>Transferir Dinero</h2>
+        <form action="" id="botonTransferir2">
+            <h2>Transferir Dinero</h2>
             <input type="number" id="montoTransferir" placeholder="Cantidad a transferir" required>
             <input type="text" id="cuentaDestino" placeholder="Número de cuenta" required>
-            <button type="submit" id="botonTransferir2">Transferir</button>
+            <button type="submit">Transferir</button>
+        </form>
     </div>
 
     <div class="formulario-container" id="formularioConsultar">
@@ -43,14 +50,11 @@
         <p id="movimientosRealizados">Movimientos realizados: 0</p>
     </div>
 
-    
     <div id="cerrar-seccion">
         <a href="./index.html">
             <button id="cerrar-seccion">Cerrar sesión <i class="fas fa-sign-out-alt"></i></button>
         </a>
     </div>
-    
-
 
 </body>
 <script src="../controllers/movimientos.js"></script>

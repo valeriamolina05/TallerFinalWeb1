@@ -1,3 +1,4 @@
+console.log(localStorage)
 let saldoElement = document.getElementById("saldoDisponible");
 let fechaActual
 let saldoActual
@@ -9,7 +10,9 @@ saldoElement.textContent = usuario.saldo
 let retirar = document.getElementById("montoRetirar");
 let botonRetirar = document.getElementById("botonRetirar2");
 
-botonRetirar.addEventListener("click", function () {
+botonRetirar.addEventListener("submit", function (event) {
+    event.preventDefault();
+
     saldoActual = parseInt(saldoElement.textContent);
     let montoARetirar = parseInt(retirar.value);
     if (saldoActual > 0 && montoARetirar <= saldoActual && montoARetirar >= 50) {
@@ -55,7 +58,9 @@ botonRetirar.addEventListener("click", function () {
 let consignar = document.getElementById("montoConsignar")
 let botonConsignar = document.getElementById("botonConsignar2");
 
-botonConsignar.addEventListener("click", function () {
+botonConsignar.addEventListener("submit", function (event) {
+    event.preventDefault();
+
     saldoActual = parseInt(saldoElement.textContent);
     let montoAConsignar = parseInt(consignar.value);
     if (montoAConsignar >= 50){
@@ -93,7 +98,9 @@ let transferir = document.getElementById("montoTransferir");
 let botonTransferir = document.getElementById("botonTransferir2");
 let cuentaDestino = document.getElementById("cuentaDestino");
 
-botonTransferir.addEventListener("click", function () {
+botonTransferir.addEventListener("submit", function (event) {
+    event.preventDefault();
+
     saldoActual = parseInt(saldoElement.textContent);
     let montoATransferir = parseInt(transferir.value);
     let usuarioTranferir = JSON.parse(localStorage.getItem(parseInt(cuentaDestino.value.toString())));
