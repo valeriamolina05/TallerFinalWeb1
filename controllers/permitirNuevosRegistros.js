@@ -2,7 +2,7 @@ const registroForm = document.querySelector('.formulario-registrar');
 
 // Expresiones regulares para validar los campos
 const nombreUsuario = /^[a-zA-Z0-9_-]{3,16}$/;
-const numeroCuenta = /^\d{5}$/;
+const numeroCuenta = /^[1-9]\d{4}$/;
 const correoElectronico = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const pin = /^(?!([0-9])\1{3})\d{4}$/;
 
@@ -25,7 +25,11 @@ registroForm.addEventListener('submit', function (event) {
   }
 
   if (!numeroCuenta.test(numeroCuentaInput.value)) {
-    mostrarMensajeError(numeroCuentaInput, 'Número de cuenta inválido');
+    if (/^0\d*/.test(numeroCuentaInput.value)) {
+      mostrarMensajeError(numeroCuentaInput, 'Número de cuenta no puede iniciar con un 0');
+    } else {
+      mostrarMensajeError(numeroCuentaInput, 'Número de cuenta inválido');
+    }
     return;
   }
 
@@ -54,7 +58,7 @@ registroForm.addEventListener('submit', function (event) {
     localStorage.setItem(usuarioPorDefecto.numeroCuenta, JSON.stringify(usuarioPorDefecto));
   }
 
-  if (localStorage.getItem(numeroCuentaInput.value) === null && numeroCuentaInput.value[0] !== '0') {
+  if (localStorage.getItem(numeroCuentaInput.value) === null) {
     const nuevoUsuario = {
       nombreUsuario: nombreUsuarioInput.value,
       numeroCuenta: numeroCuentaInput.value,
@@ -90,8 +94,6 @@ registroForm.addEventListener('submit', function (event) {
       timer: 4000
     })
     numeroCuentaInput.value = '';
-  } else if (numeroCuentaInput.value[0] === '0') {
-    Swal.fire('El numero de cuenta no puede empezar por 0')
   }else {
     Swal.fire('Ocurrio un error inesperado')
   }
