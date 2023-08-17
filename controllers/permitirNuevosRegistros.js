@@ -4,7 +4,7 @@ const registroForm = document.querySelector('.formulario-registrar');
 const nombreUsuario = /^[a-zA-Z0-9_-]{3,16}$/;
 const numeroCuenta = /^\d{5}$/;
 const correoElectronico = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const contrasenia = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+const pin = /^(?!([0-9])\1{3})\d{4}$/;
 
 function mostrarMensajeError(campo, mensaje) {
   const errorElement = document.getElementById(`error-${campo.id}`);
@@ -17,7 +17,7 @@ registroForm.addEventListener('submit', function (event) {
   const nombreUsuarioInput = document.getElementById('nombre-usuario');
   const numeroCuentaInput = document.getElementById('numero-cuenta');
   const correoElectronicoInput = document.getElementById('correo-electronico');
-  const contraseniaInput = document.getElementById('contrasenia');
+  const pinInput = document.getElementById('contrasenia');
 
   if (!nombreUsuario.test(nombreUsuarioInput.value)) {
     mostrarMensajeError(nombreUsuarioInput, 'Nombre de usuario inválido');
@@ -34,36 +34,42 @@ registroForm.addEventListener('submit', function (event) {
     return;
   }
 
-  if (!contrasenia.test(contraseniaInput.value)) {
-    mostrarMensajeError(contraseniaInput, 'Contraseña inválida');
+  if (!pin.test(pinInput.value)) {
+    if (/(\d)\1{3}/.test(pinInput.value)) {
+      mostrarMensajeError(pinInput, 'No puede tener 4 numeros repetidos');
+    } else {
+      mostrarMensajeError(pinInput, 'Pin inválido');
+    }
     return;
   }
 
-  const usuarioPorDefecto = {
-    nombreUsuario: 'usuario-defecto',
-    numeroCuenta: 99999,
-    correoElectronico: 'ejemplo@gmail.com',
-    contrasenia: 'Prueb@123',
-    saldo: 0
+  if (localStorage.getItem(99999) === null) {
+    const usuarioPorDefecto = {
+      nombreUsuario: 'usuario-defecto',
+      numeroCuenta: 99999,
+      correoElectronico: 'ejemplo@gmail.com',
+      pin: '1234',
+      saldo: 0
+    }
+    localStorage.setItem(usuarioPorDefecto.numeroCuenta, JSON.stringify(usuarioPorDefecto));
   }
-  localStorage.setItem(usuarioPorDefecto.numeroCuenta, JSON.stringify(usuarioPorDefecto));
 
-  if (localStorage.getItem(numeroCuentaInput.value) === null && usuarioEncontrado === true) {
+  if (localStorage.getItem(numeroCuentaInput.value) === null && numeroCuentaInput.value[0] !== '0') {
     const nuevoUsuario = {
       nombreUsuario: nombreUsuarioInput.value,
       numeroCuenta: numeroCuentaInput.value,
       correoElectronico: correoElectronicoInput.value,
-      contrasenia: contraseniaInput.value,
+      pin: pinInput.value,
       saldo: 0
     };
 
-    localStorage.setItem("NumeroCuentaActual", numeroCuentaInput.value);
+    localStorage.setItem("NumeroCuentaActual", JSON.stringify(numeroCuentaInput.value));
     localStorage.setItem(numeroCuentaInput.value, JSON.stringify(nuevoUsuario));
 
     nombreUsuarioInput.value = '';
     numeroCuentaInput.value = '';
     correoElectronicoInput.value = '';
-    contraseniaInput.value = '';
+    pinInput.value = '';
 
     Swal.fire({
       icon: 'success',
@@ -75,8 +81,7 @@ registroForm.addEventListener('submit', function (event) {
 
       window.location.href = 'Movimientos.html';
     });
-  }
-  else if (localStorage.getItem(numeroCuentaInput.value) !== null) {
+  } else if (localStorage.getItem(numeroCuentaInput.value) !== null) {
     Swal.fire({
       icon: 'error',
       title: 'Cuenta ya existe',
@@ -85,8 +90,9 @@ registroForm.addEventListener('submit', function (event) {
       timer: 4000
     })
     numeroCuentaInput.value = '';
-  }
-  else {
-    Swal.fire('Ocurrio un error inesperado...')
+  } else if (numeroCuentaInput.value[0] === '0') {
+    Swal.fire('El numero de cuenta no puede empezar por 0')
+  }else {
+    Swal.fire('Ocurrio un error inesperado')
   }
 });
