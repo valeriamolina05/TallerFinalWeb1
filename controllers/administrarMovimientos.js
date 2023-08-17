@@ -2,7 +2,7 @@ let saldoElement = document.getElementById("saldoDisponible");
 let fechaActual
 let saldoActual
 let nuevoSaldo
-let usuarioActual = parseInt(JSON.parse(localStorage.getItem("NumeroCuentaActual")))
+let usuarioActual = JSON.parse(localStorage.getItem("NumeroCuentaActual"))
 let usuario = JSON.parse(localStorage.getItem(usuarioActual));
 saldoElement.textContent = usuario.saldo
 
@@ -96,10 +96,10 @@ let cuentaDestino = document.getElementById("cuentaDestino");
 botonTransferir.addEventListener("click", function () {
     saldoActual = parseInt(saldoElement.textContent);
     let montoATransferir = parseInt(transferir.value);
-    let usuarioTranferir = JSON.parse(localStorage.getItem(parseInt(cuentaDestino.value)));
+    let usuarioTranferir = JSON.parse(localStorage.getItem(parseInt(cuentaDestino.value.toString())));
 
     if (saldoActual > 0 && montoATransferir <= saldoActual  &&  montoATransferir >= 50) {
-        if (cuentaDestino !== usuarioActual.toString() &&  localStorage.getItem(cuentaDestino.value) !== null){
+        if (cuentaDestino.value !== usuarioActual &&  localStorage.getItem(cuentaDestino.value) !== null){
             saldoActual -= montoATransferir;
             usuarioTranferir.saldo += montoATransferir;
             localStorage.setItem(cuentaDestino.value, JSON.stringify(usuarioTranferir))
