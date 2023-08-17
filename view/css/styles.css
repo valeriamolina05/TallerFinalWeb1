@@ -11,6 +11,19 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
+/* Modifica la apariencia de la barra de desplazamiento en navegadores Chromium */
+::-webkit-scrollbar {
+  width: 5px; /* Ancho de la barra de desplazamiento */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color de la parte arrastrable de la barra */
+  border-radius: 5px; /* Borde redondeado de la parte arrastrable */
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color de la pista de la barra */
+  border-radius: 5px; /* Borde redondeado de la pista */
+}
+
 .contenedor {
   position: relative;
   width: 100%;
@@ -217,8 +230,6 @@ form.formulario-iniciar-sesion {
   font-size: 40px;
   color: #fff;
 }
-
-
 
 .panel p {
   font-size: 0.95rem;

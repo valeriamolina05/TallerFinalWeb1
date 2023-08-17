@@ -67,7 +67,7 @@ registroForm.addEventListener('submit', function (event) {
       saldo: 0
     };
 
-    localStorage.setItem("NumeroCuentaActual", JSON.stringify(numeroCuentaInput.value));
+    localStorage.setItem("NumeroCuentaActual", numeroCuentaInput.value);
     localStorage.setItem(numeroCuentaInput.value, JSON.stringify(nuevoUsuario));
 
     nombreUsuarioInput.value = '';

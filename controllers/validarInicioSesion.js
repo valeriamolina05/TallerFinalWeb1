@@ -14,7 +14,7 @@ loginForm.addEventListener('submit', function (event) {
   let usuarioEncontrado
   localStorage.setItem("NumeroCuentaActual", accountNumber);
   usuario = [JSON.parse(localStorage.getItem(accountNumber))] || null;
-  if (usuario[0] !== null && usuario[0].contrasenia === pin) {
+  if (usuario[0] !== null && usuario[0].pin === pin) {
     usuarioEncontrado = true;
   }else {
     usuarioEncontrado = false;
